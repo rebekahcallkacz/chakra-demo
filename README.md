@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Goals for Demo
+
+- Overview of Chakra Documentation: [installation](https://chakra-ui.com/getting-started), [design principles](https://chakra-ui.com/getting-started/principles), and [components](https://chakra-ui.com/docs/components)
+- Add a clickable button and text that tracks how many times the button is clicked
+- Reach goal: Add a notification when the user clicks 5 times
+
 ## Steps to Create a Repo with TypeScript and Chakra UI
 
 ### Only relevant if you want to create your own project and don't want to just clone down this one
