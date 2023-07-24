@@ -31,7 +31,7 @@ function App() {
 
   // This is also just React, but we're calling a function that's part of the Chakra UI hook useDisclosure
   useEffect(() => {
-    if (clickCount === 3) {
+    if (clickCount === 5) {
       onAlertOpen();
     }
   }, [clickCount, onAlertOpen]);
@@ -91,7 +91,7 @@ function App() {
           <AlertIcon />
           <Box>
             <AlertTitle>Warning!</AlertTitle>
-            <AlertDescription>You have clicked 3 times.</AlertDescription>
+            <AlertDescription>{`You have clicked ${clickCount} times.`}</AlertDescription>
           </Box>
           <CloseButton right={-1} top={-1} onClick={onAlertClose} />
         </Alert>
