@@ -6,13 +6,21 @@ import {
   AlertDescription,
   Box,
   Button,
+  Card,
+  CardBody,
+  CardFooter,
   Center,
   ChakraProvider,
   CloseButton,
-  Code,
+  Code, 
   Heading,
   HStack,
   Link,
+  Progress,
+   Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -57,7 +65,8 @@ function App() {
         {/* I am styling my components using Chakra's style props: https://chakra-ui.com/docs/styled-system/style-props */}
         {/* green.500 is a default color:  https://chakra-ui.com/docs/styled-system/theme#colors*/}
         {/* size is also a default: https://chakra-ui.com/docs/styled-system/theme#colors */}
-        <Heading size="2xl" color="green.500" textAlign={"center"}>
+        {/*Make the header left aligned instead of centered*/}
+        <Heading size="2xl" color="green.500" textAlign={"left"}>
           <Text>
             Edit <Code>src/App.tsx</Code> and save to reload.
           </Text>
@@ -79,10 +88,38 @@ function App() {
         The props tab will have any props that Chakra has added in addition to the html element props that already exist
         The theming tab will give you guidance on how to customize style
         For example, on this button, we're using a default color scheme from the theme to change the button color*/}
-        <Button colorScheme="cyan" onClick={() => handleClick()}>
+
+        {/*Change the color of the button */}
+        {/*Change the style of the button to a different variant*/}
+
+        {/*Put the button and its instructions in a Card*/}
+        {/*Add a Stat that displays how many times the button has been clicked*/}
+        <Card>
+          <CardBody>
+                 {/*Add a Stat that displays how many times the button has been clicked*/}
+                 <Stat>
+                  <StatLabel>
+You have clicked
+                  </StatLabel>
+                  <StatNumber>
+{clickCount}
+                  </StatNumber>
+                  <StatHelpText>
+ times.
+                  </StatHelpText>
+                 </Stat>
+   {/* <Text>{`You have clicked ${clickCount} times.`}</Text> */}
+   {/*Add a progress bar that tracks how close you are to clicking the button 5 times*/}
+    <Progress colorScheme="red" value={clickCount} max={5}/>
+          </CardBody> 
+          <CardFooter>
+   <Button colorScheme="red" variant="outline" size="md" onClick={() => handleClick()}>
           Click Me!
         </Button>
-        <Text>{`You have clicked ${clickCount} times.`}</Text>
+    
+          </CardFooter>
+        </Card>
+     
       </HStack>
       {isAlertVisible && (
         // width="max" is "max-content": https://chakra-ui.com/docs/styled-system/theme#sizes
