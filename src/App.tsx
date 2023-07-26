@@ -11,10 +11,16 @@ import {
   CloseButton,
   Code,
   Heading,
-  HStack,
+  VStack,
   Link,
   Text,
   useDisclosure,
+  Card, 
+  CardBody, 
+  Progress,
+  Stat,
+  StatLabel,
+  StatNumber,
 } from "@chakra-ui/react";
 
 function App() {
@@ -57,7 +63,7 @@ function App() {
         {/* I am styling my components using Chakra's style props: https://chakra-ui.com/docs/styled-system/style-props */}
         {/* green.500 is a default color:  https://chakra-ui.com/docs/styled-system/theme#colors*/}
         {/* size is also a default: https://chakra-ui.com/docs/styled-system/theme#colors */}
-        <Heading size="2xl" color="green.500" textAlign={"center"}>
+        <Heading size="2xl" color="green.500" textAlign={"left"}>
           <Text>
             Edit <Code>src/App.tsx</Code> and save to reload.
           </Text>
@@ -73,17 +79,32 @@ function App() {
         </Heading>
       </Center>
       {/* Stack allows for stacking items horizontally or vertically: https://chakra-ui.com/docs/components/stack/usage */}
-      <HStack>
-        {/* For any component you want to use, you can review it in the documentation
-        The default page will have some code snippets and the general functionality 
-        The props tab will have any props that Chakra has added in addition to the html element props that already exist
-        The theming tab will give you guidance on how to customize style
-        For example, on this button, we're using a default color scheme from the theme to change the button color*/}
-        <Button colorScheme="cyan" onClick={() => handleClick()}>
-          Click Me!
-        </Button>
-        <Text>{`You have clicked ${clickCount} times.`}</Text>
-      </HStack>
+      <Card>
+        <CardBody>
+          <VStack>
+          {/* For any component you want to use, you can review it in the documentation
+          The default page will have some code snippets and the general functionality 
+          The props tab will have any props that Chakra has added in addition to the html element props that already exist
+          The theming tab will give you guidance on how to customize style
+          For example, on this button, we're using a default color scheme from the theme to change the button color*/}
+          <Button colorScheme="teal" onClick={() => handleClick()}>
+            Click Me!
+          </Button>
+          <Text>{`You have clicked ${clickCount} times.`}</Text>
+        </VStack>
+        </CardBody>
+      </Card>
+      <Progress colorScheme='teal' size='lg' value={clickCount} max={5}/>
+        <Stat colorScheme="teal">
+          <Center>
+            <StatLabel>Look how many times you have clicked!</StatLabel>
+          </Center>
+          <Center>
+            <StatNumber>{clickCount}</StatNumber> 
+          </Center>
+        </Stat>
+
+      
       {isAlertVisible && (
         // width="max" is "max-content": https://chakra-ui.com/docs/styled-system/theme#sizes
         // Alert comes with four related components - you can choose which one(s) you want to use
