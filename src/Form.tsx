@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 function Form() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const onFormSubmit = (e: any) => {
-    e.preventDefault();
+  const onFormSubmit = () => {
     console.log("you submitted!");
     console.log(email);
     console.log(password);
@@ -14,7 +13,7 @@ function Form() {
     setPassword("");
   };
   return (
-    <form onSubmit={onFormSubmit}>
+    <Box>
       <FormControl isRequired>
         <FormLabel>Email</FormLabel>
         <Input
@@ -31,10 +30,10 @@ function Form() {
           onChange={(event) => setPassword(event.target.value)}
         ></Input>
       </FormControl>
-      <Button variant="solid" type="submit" title="login">
+      <Button variant="solid" title="login" onClick={onFormSubmit}>
         Login
       </Button>
-    </form>
+    </Box>
   );
 }
 
