@@ -17,6 +17,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
+import Form from "./Form";
+
 function App() {
   // This is just straightforward React - keeping track of the number of times the button is clicked
   const [clickCount, setClickCount] = useState<number>(0);
@@ -84,6 +86,7 @@ function App() {
         </Button>
         <Text>{`You have clicked ${clickCount} times.`}</Text>
       </HStack>
+      <Form />
       {isAlertVisible && (
         // width="max" is "max-content": https://chakra-ui.com/docs/styled-system/theme#sizes
         // Alert comes with four related components - you can choose which one(s) you want to use
